@@ -1,0 +1,80 @@
+
+Food Delivery Time Prediction using CNN
+
+Objective:
+The goal of this project is to predict whether a food delivery will be Fast or Delayed
+based on customer location, restaurant location, weather, traffic conditions, delivery
+person experience, order priority, vehicle type, ratings, cost, tip amount, and time-based features.
+
+Dataset:
+Input File:
+C:\Users\NXTWAVE\Downloads\Food Delivery Time\Food_Delivery_Time_Prediction.csv
+
+Dataset Shape:
+(200, 23)
+
+Target Creation:
+The Delivery_Time column was converted into a binary classification target.
+Deliveries less than or equal to the median delivery time were labelled as Fast.
+Deliveries greater than the median delivery time were labelled as Delayed.
+
+Median Delivery Time:
+72.775
+
+Feature Engineering:
+1. Customer latitude and longitude were extracted from Customer_Location.
+2. Restaurant latitude and longitude were extracted from Restaurant_Location.
+3. Haversine distance was calculated between customer and restaurant.
+4. Rush hour feature was created using Order_Time.
+5. Order hour was extracted from Order_Time.
+6. Categorical features were encoded using One-Hot Encoding.
+7. Numerical features were scaled using StandardScaler.
+8. Missing numerical values were handled using median imputation.
+9. Missing categorical values were handled using most frequent imputation.
+
+CNN Method:
+Since the dataset is tabular and does not contain real route/map images, the processed
+feature vector was converted into an image-like matrix. This allowed CNN layers to process
+the structured delivery features.
+
+CNN Results:
+Accuracy: 0.75
+Precision: 0.75
+Recall: 0.75
+F1 Score: 0.75
+ROC AUC: 0.8125
+
+Logistic Regression Results:
+Accuracy: 0.975
+Precision: 1.0
+Recall: 0.95
+F1 Score: 0.9743589743589743
+
+Cross Validation:
+Average CV Accuracy: 0.615
+Average CV F1 Score: 0.6499055235594282
+
+Best CNN Hyperparameters:
+{'filters': 32.0, 'kernel_size': 3.0, 'learning_rate': 0.001, 'dense_units': 64.0, 'dropout_rate': 0.3, 'Accuracy': 0.75, 'Precision': 0.8125, 'Recall': 0.65, 'F1_Score': 0.7222222222222222}
+
+Generated Files:
+1. processed_food_delivery_data.csv
+2. cnn_food_delivery_model.h5
+3. cnn_classification_report.txt
+4. cnn_confusion_matrix.png
+5. cnn_roc_curve.png
+6. cnn_training_accuracy.png
+7. cnn_training_loss.png
+8. model_comparison_results.csv
+9. model_comparison_graph.png
+10. cnn_cross_validation_results.csv
+11. cnn_cross_validation_graph.png
+12. cnn_hyperparameter_tuning_results.csv
+13. cnn_predictions.csv
+14. final_report.txt
+
+Conclusion:
+The CNN model was successfully implemented for Fast vs Delayed food delivery prediction.
+The model was evaluated using accuracy, precision, recall, F1-score, confusion matrix,
+ROC curve, cross-validation, and hyperparameter tuning. Logistic Regression was also
+used as a baseline comparison model.
