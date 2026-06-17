@@ -5,85 +5,72 @@ Author:
 Sagnik Patra
 
 Objective:
-The goal of this project is to predict whether a food delivery will be Fast or Delayed
-using delivery, location, weather, traffic, rating, vehicle, priority, and time-based features.
+Predict whether a food delivery is Fast or Delayed using location, weather, traffic,
+vehicle, rating, order priority, distance, and time-based features.
 
-Dataset:
+Dataset Loaded:
 Food_Delivery_Time_Prediction.csv
 
-Note:
-The dataset is used only for model training and is not included in the final submission package.
-
 Dataset Shape:
-(200, 23)
+(200, 24)
 
-Median Delivery Time:
-72.775
+Preprocessing Completed:
+1. Dataset loaded successfully.
+2. Missing numerical values handled using median imputation.
+3. Missing categorical values handled using most frequent imputation.
+4. Categorical features encoded using One-Hot Encoding.
+5. Numerical features normalized using StandardScaler.
 
-Target Creation:
-Fast = Delivery_Time <= Median Delivery_Time
-Delayed = Delivery_Time > Median Delivery_Time
+Feature Engineering Completed:
+1. Customer coordinates extracted.
+2. Restaurant coordinates extracted.
+3. Haversine distance calculated.
+4. Rush hour feature created.
+5. Order hour feature created.
+6. Weather impact feature created.
 
-Preprocessing:
-1. Missing numerical values were handled using median imputation.
-2. Missing categorical values were handled using most frequent imputation.
-3. Categorical variables were encoded using One-Hot Encoding.
-4. Numerical variables were normalized using StandardScaler.
+Image-Based CNN Representation:
+Tabular features were converted into square image-like matrices so that Conv2D CNN
+layers could process the data.
 
-Feature Engineering:
-1. Customer and restaurant coordinates were extracted.
-2. Haversine distance was calculated.
-3. Rush hour feature was created.
-4. Order hour was extracted.
+CNN Model:
+Conv2D, BatchNormalization, MaxPooling2D, Flatten, Dense, Dropout, and Sigmoid layers.
 
-CNN Results:
-Accuracy: 0.8
-Precision: 0.7727272727272727
+CNN Evaluation:
+Accuracy: 0.75
+Precision: 0.7083333333333334
 Recall: 0.85
-F1 Score: 0.8095238095238095
-ROC AUC: 0.8825
+F1 Score: 0.7727272727272727
+ROC AUC: 0.8575
 
-Logistic Regression Results:
+Logistic Regression Comparison:
 Accuracy: 0.975
 Precision: 1.0
 Recall: 0.95
 F1 Score: 0.9743589743589743
 
 Cross Validation:
-Average Accuracy: 0.775
-Average Precision: 0.7926558821295664
-Average Recall: 0.82
-Average F1 Score: 0.7884825185134783
+Average CV Accuracy: 0.835
+Average CV Precision: 0.8522644847412648
+Average CV Recall: 0.8099999999999999
+Average CV F1 Score: 0.8294701346947816
 
-Best CNN Hyperparameters:
-{'filters': 16.0, 'kernel_size': 2.0, 'learning_rate': 0.001, 'dense_units': 32.0, 'dropout_rate': 0.2, 'Accuracy': 0.85, 'Precision': 0.8181818181818182, 'Recall': 0.9, 'F1_Score': 0.8571428571428571}
+Hyperparameter Tuning:
+Method: RandomizedSearchCV
+Best Parameters: {'learning_rate': 0.001, 'kernel_size': 3, 'filters': 32, 'epochs': 20, 'dropout_rate': 0.4, 'dense_units': 32, 'batch_size': 16}
+Best F1 Score: 0.7932277861355876
 
-Required Submission Files:
-1. Food_Delivery_Time_CNN.ipynb
-2. README.md
-3. final_report.txt
-4. cnn_food_delivery_model.h5
-5. cnn_classification_report.txt
-6. model_comparison_results.csv
-7. cnn_cross_validation_results.csv
-8. cnn_hyperparameter_tuning_results.csv
-9. cnn_predictions.csv
-10. cnn_confusion_matrix.png
-11. cnn_roc_curve.png
-12. cnn_training_accuracy.png
-13. cnn_training_loss.png
-14. cnn_cross_validation_graph.png
-15. model_comparison_graph.png
-
-Excluded From Submission:
-1. Food_Delivery_Time_Prediction.csv
-2. Raw data dumps
-3. Large media files
-4. venv, env, node_modules
-5. dist, build
-6. .next, .cache, __pycache__
-7. Notebook large outputs
+Visualizations Generated:
+1. cnn_confusion_matrix.png
+2. cnn_roc_curve.png
+3. cnn_training_accuracy.png
+4. cnn_training_loss.png
+5. cnn_cross_validation_graph.png
+6. model_comparison_graph.png
 
 Conclusion:
-The CNN model was successfully trained, evaluated, cross-validated, and compared with
-Logistic Regression. Only assignment-required outputs are generated and retained.
+All required assignment components were completed, including preprocessing, missing
+value handling, categorical encoding, normalization, Haversine feature engineering,
+rush-hour and weather features, image-based CNN representation, CNN implementation,
+training, evaluation, K-fold cross-validation, ROC curve, confusion matrix,
+RandomizedSearchCV tuning, and Logistic Regression comparison.
