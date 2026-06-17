@@ -6,117 +6,84 @@ Sagnik Patra
 
 Objective:
 The goal of this project is to predict whether a food delivery will be Fast or Delayed
-based on customer location, restaurant location, weather conditions, traffic conditions,
-delivery person experience, order priority, ratings, vehicle type, distance, and other
-delivery-related features.
+using delivery, location, weather, traffic, rating, vehicle, priority, and time-based features.
 
 Dataset:
 Food_Delivery_Time_Prediction.csv
 
+Note:
+The dataset is used only for model training and is not included in the final submission package.
+
 Dataset Shape:
 (200, 23)
 
-Target Variable:
-The target variable was created from Delivery_Time.
-
-Fast:
-Delivery_Time <= Median Delivery_Time
-
-Delayed:
-Delivery_Time > Median Delivery_Time
-
 Median Delivery Time:
 72.775
+
+Target Creation:
+Fast = Delivery_Time <= Median Delivery_Time
+Delayed = Delivery_Time > Median Delivery_Time
 
 Preprocessing:
 1. Missing numerical values were handled using median imputation.
 2. Missing categorical values were handled using most frequent imputation.
 3. Categorical variables were encoded using One-Hot Encoding.
 4. Numerical variables were normalized using StandardScaler.
-5. Location coordinates were extracted from customer and restaurant locations.
 
 Feature Engineering:
-1. Customer latitude and longitude were extracted.
-2. Restaurant latitude and longitude were extracted.
-3. Haversine distance was calculated.
+1. Customer and restaurant coordinates were extracted.
+2. Haversine distance was calculated.
+3. Rush hour feature was created.
 4. Order hour was extracted.
-5. Rush hour feature was created.
-6. Delivery status was created as Fast or Delayed.
 
-CNN Method:
-The dataset was tabular, so the processed feature vector was converted into an
-image-like square matrix. This allowed the CNN model to process the features using
-Conv2D layers.
+CNN Results:
+Accuracy: 0.8
+Precision: 0.7727272727272727
+Recall: 0.85
+F1 Score: 0.8095238095238095
+ROC AUC: 0.8825
 
-CNN Architecture:
-1. Conv2D Layer
-2. Batch Normalization
-3. MaxPooling2D
-4. Conv2D Layer
-5. Batch Normalization
-6. MaxPooling2D
-7. Flatten Layer
-8. Dense Layer
-9. Dropout Layer
-10. Sigmoid Output Layer
-
-CNN Performance:
-Accuracy: 0.875
-Precision: 0.9411764705882353
-Recall: 0.8
-F1 Score: 0.8648648648648649
-ROC AUC: 0.9175
-
-Logistic Regression Performance:
+Logistic Regression Results:
 Accuracy: 0.975
 Precision: 1.0
 Recall: 0.95
 F1 Score: 0.9743589743589743
 
 Cross Validation:
-Number of Folds: 5
-
-Average CV Accuracy:
-0.79
-
-Average CV Precision:
-0.8744884939621782
-
-Average CV Recall:
-0.7100000000000001
-
-Average CV F1 Score:
-0.7180048406877675
+Average Accuracy: 0.775
+Average Precision: 0.7926558821295664
+Average Recall: 0.82
+Average F1 Score: 0.7884825185134783
 
 Best CNN Hyperparameters:
-{'filters': 32.0, 'kernel_size': 3.0, 'learning_rate': 0.001, 'dense_units': 64.0, 'dropout_rate': 0.3, 'Accuracy': 0.875, 'Precision': 0.9411764705882353, 'Recall': 0.8, 'F1_Score': 0.8648648648648649}
+{'filters': 16.0, 'kernel_size': 2.0, 'learning_rate': 0.001, 'dense_units': 32.0, 'dropout_rate': 0.2, 'Accuracy': 0.85, 'Precision': 0.8181818181818182, 'Recall': 0.9, 'F1_Score': 0.8571428571428571}
 
-Generated Assignment Files:
-1. cnn_food_delivery_model.h5
-2. cnn_classification_report.txt
-3. model_comparison_results.csv
-4. cnn_cross_validation_results.csv
-5. cnn_hyperparameter_tuning_results.csv
-6. cnn_predictions.csv
-7. cnn_confusion_matrix.png
-8. cnn_roc_curve.png
-9. cnn_training_accuracy.png
-10. cnn_training_loss.png
-11. cnn_cross_validation_graph.png
-12. model_comparison_graph.png
-13. final_report.txt
+Required Submission Files:
+1. Food_Delivery_Time_CNN.ipynb
+2. README.md
+3. final_report.txt
+4. cnn_food_delivery_model.h5
+5. cnn_classification_report.txt
+6. model_comparison_results.csv
+7. cnn_cross_validation_results.csv
+8. cnn_hyperparameter_tuning_results.csv
+9. cnn_predictions.csv
+10. cnn_confusion_matrix.png
+11. cnn_roc_curve.png
+12. cnn_training_accuracy.png
+13. cnn_training_loss.png
+14. cnn_cross_validation_graph.png
+15. model_comparison_graph.png
 
 Excluded From Submission:
-1. Dataset CSV file
+1. Food_Delivery_Time_Prediction.csv
 2. Raw data dumps
-3. Environment folders
-4. Cache folders
-5. Build folders
-6. Notebook outputs should be cleared before submission
+3. Large media files
+4. venv, env, node_modules
+5. dist, build
+6. .next, .cache, __pycache__
+7. Notebook large outputs
 
 Conclusion:
-The CNN model was successfully developed and evaluated for food delivery classification.
-The system predicts whether a delivery is Fast or Delayed using delivery, location,
-weather, traffic, and time-based features. The model was validated using train-test
-evaluation, confusion matrix, ROC curve, Logistic Regression comparison, 5-fold
-cross-validation, and hyperparameter tuning.
+The CNN model was successfully trained, evaluated, cross-validated, and compared with
+Logistic Regression. Only assignment-required outputs are generated and retained.
