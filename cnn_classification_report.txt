@@ -1,8 +1,8 @@
               precision    recall  f1-score   support
 
-     Delayed       0.75      0.75      0.75        20
-        Fast       0.75      0.75      0.75        20
+     Delayed       0.83      0.95      0.88        20
+        Fast       0.94      0.80      0.86        20
 
-    accuracy                           0.75        40
-   macro avg       0.75      0.75      0.75        40
-weighted avg       0.75      0.75      0.75        40
+    accuracy                           0.88        40
+   macro avg       0.88      0.88      0.87        40
+weighted avg       0.88      0.88      0.87        40
